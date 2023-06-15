@@ -1,6 +1,13 @@
-#Include < stdio.h >
+#include <stdio.h>
+/**
+ * main - the function main()
+ *
+ * Return: always
+ */
 int main(void)
 {
-	puts("Programming is like building a multilingular puzzle");
+	puts("\"Programming is like building a multilingular puzzle");
+
+
+	return (0);
 }
-		return (0);
