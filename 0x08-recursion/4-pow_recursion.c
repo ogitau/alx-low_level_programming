@@ -3,7 +3,7 @@
  * _pow_recursion - function to give power of int
  * @x: the integer to power
  * @y: the power to multiply to x
- * Return: the result 
+ * Return: the result
  */
 int _pow_recursion(int x, int y)
 {
