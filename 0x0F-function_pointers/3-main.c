@@ -2,6 +2,13 @@
 #include "3-calc.h"
 #include <stdlib.h>
 
+/**
+ * main - starting point
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: 0 on successs
+ */
+
 int main(int argc, char *argv[])
 {
 	int (*opp)(int, int);
