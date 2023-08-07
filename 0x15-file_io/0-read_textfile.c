@@ -12,23 +12,23 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
 	ssize_t fdread, fdwrite, fdclose;
-	char *size;
+	char *s;
 
 	if (filename == NULL)
 		return (0);
-	size = malloc(sizeof(char) * letters);
-	if (size == NULL)
+	s = malloc(sizeof(char) * letters);
+	if (s == NULL)
 	{
 		return (-1);
 	}
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		return (-1);
-	fdread = read(fd, size, letters);
+		return (0);
+	fdread = read(fd, s, letters);
 	if (fdread == -1)
 		return (-1);
-	fdwrite = write(STDOUT_FILENO, size, fdread);
+	fdwrite = write(STDOUT_FILENO, s, fdread);
 
 	if (fdwrite == -1)
 		return (-1);
