@@ -1,7 +1,7 @@
 #include "main.h"
 
 char *create_ghost(char *file);
-void close_file(int td);
+void close_file(int fd);
 
 /**
  * create_ghost - function to allocate bytes
