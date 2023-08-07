@@ -8,7 +8,7 @@ void close_file(int td);
  * @file: variable storing chars
  * Return: pointer to newly allocated ghost
  */
-char *create_ghost (char *file)
+char *create_ghost(char *file)
 {
 	char *w;
 
@@ -29,13 +29,12 @@ char *create_ghost (char *file)
 void close_file(int fd)
 {
 	int b;
-	
+
 	b = close(fd);
 	if (b == -1)
 	{
-		dprintf(STDERR_FILENO,
-				"Error: Cant close fd %d\n", fd);
-		exit (100);
+		dprintf(STDERR_FILENO, "Error: Cant close fd %d\n", fd);
+		exit(100);
 	}
 }
 
@@ -77,7 +76,6 @@ int main(int argc, char *av[])
 
 	fileread = read(src, buffer, 1024);
 	dest = open(av[2], O_WRONLY | O_APPEND);
-	
 	} while (fileread > 0);
 	free(buffer);
 	close_file(src);
