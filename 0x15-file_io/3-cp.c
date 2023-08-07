@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 char *create_ghost(char *file);
 void close_file(int fd);
@@ -59,24 +61,24 @@ int main(int argc, char *av[])
 	fileread = read(src, buffer, 1024);
 	dest = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	do {
-	if (src == -1 || fileread == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-		free(buffer);
-		exit(98);
-	}
-	dest  = open(av[2], O_TRUNC | O_CREAT | O_WRONLY, 0664);
-	filewrite = write(dest, buffer, fileread);
-	if (dest == -1 || filewrite == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-		free(buffer);
-		exit(99);
-	}
-
-	fileread = read(src, buffer, 1024);
-	dest = open(av[2], O_WRONLY | O_APPEND);
-	} while (fileread > 0);
+		if (src == -1 || fileread == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+			free(buffer);
+			exit(98);
+		}
+		dest  = open(av[2], O_TRUNC | O_CREAT | O_WRONLY, 0664);
+		filewrite = write(dest, buffer, fileread);
+		if (dest == -1 || filewrite == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+			free(buffer);
+			exit(99);
+		}
+		
+		fileread = read(src, buffer, 1024);
+		dest = open(av[2], O_WRONLY | O_APPEND);
+	}while (fileread > 0);
 	free(buffer);
 	close_file(src);
 	close_file(dest);
